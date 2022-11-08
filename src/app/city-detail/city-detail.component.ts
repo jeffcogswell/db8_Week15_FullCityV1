@@ -1,5 +1,5 @@
 // We need to manually add "Input" to the next line:
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { City } from '../city';
 
 @Component({
@@ -14,6 +14,11 @@ export class CityDetailComponent implements OnInit {
 		state: 'MI',
 		population: 400000
 	}
+
+	// For the delete, we need a thing called an event emitter.
+	// It's the "messenger" that will notify the parent (i.e. city-list)
+	// that we want to be deleted.
+	@Output() remove: EventEmitter<City> = new EventEmitter<City>();
 
 	editMode: boolean = false;
 	changeName: string = '';
@@ -34,7 +39,7 @@ export class CityDetailComponent implements OnInit {
 	}
 
 	delete() {
-		alert('Delete!');
+		this.remove.emit(this.TheCity);
 	}
 
 	saveChanges() {

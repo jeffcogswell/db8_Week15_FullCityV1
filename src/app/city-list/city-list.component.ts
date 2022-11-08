@@ -48,4 +48,8 @@ export class CityListComponent implements OnInit {
 		this.showAdd = false;
 	}
 
+	removeItem(whichCity: City) {
+		alert(whichCity.name);
+	}
+
 }

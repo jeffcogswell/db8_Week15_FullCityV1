@@ -1,7 +1,7 @@
 <h1>Cities</h1>
 
 <ng-container *ngFor="let city of Cities">
-	<app-city-detail [TheCity]="city"></app-city-detail>
+	<app-city-detail [TheCity]="city" (remove)="removeItem($event)"></app-city-detail>
 </ng-container>
 
 <!-- Take some time to figure out this !showAdd business -->
